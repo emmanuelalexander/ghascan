@@ -5,7 +5,7 @@
 #   ./install.sh
 #
 # Instalacion remota (solo si publicaste tu propia copia):
-#   GHASCAN_RAW=https://raw.githubusercontent.com/TU-ORG/ghascan/main ./install.sh
+#   GHASCAN_RAW=https://raw.githubusercontent.com/emmanuelalexander/ghascan/main ./install.sh
 #
 # Variables:
 #   GHASCAN_HOME  destino de la tool        (default: ~/.local/share/ghascan)
@@ -82,3 +82,4 @@ say "Listo. Probar:"
 say "  ghascan selftest"
 say "  ghascan demo"
 say "  ghascan scan --local ."
+

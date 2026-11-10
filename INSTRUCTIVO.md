@@ -40,7 +40,7 @@ pipx install .
 ```
 
 `pipx` crea un entorno aislado y deja el comando `ghascan` en PATH. Si no
-tenés `pipx`:
+tenÃ©s `pipx`:
 
 ```sh
 python -m pip install --user .
@@ -62,7 +62,7 @@ chmod +x install.sh
 ```
 
 Queda en `~/.local/share/ghascan` y el launcher en `~/.local/bin/ghascan`.
-Si `~/.local/bin` no está en PATH, el instalador te lo recuerda.
+Si `~/.local/bin` no estÃ¡ en PATH, el instalador te lo recuerda.
 
 ### 1.3 Windows (instalador)
 
@@ -73,22 +73,22 @@ powershell -ExecutionPolicy Bypass -File .\install.ps1
 
 Queda en `%LOCALAPPDATA%\ghascan` y el launcher en
 `%USERPROFILE%\.local\bin\ghascan.cmd`. El instalador agrega esa carpeta al
-PATH del usuario: **abrí una terminal nueva** para que tome efecto.
+PATH del usuario: **abrÃ­ una terminal nueva** para que tome efecto.
 
-### 1.4 Instalación remota
+### 1.4 InstalaciÃ³n remota
 
-Los instaladores no descargan de ninguna URL por defecto. Si publicás tu copia:
+Los instaladores no descargan de ninguna URL por defecto. Si publicÃ¡s tu copia:
 
 ```sh
-GHASCAN_RAW=https://raw.githubusercontent.com/TU-ORG/ghascan/main ./install.sh
+GHASCAN_RAW=https://raw.githubusercontent.com/emmanuelalexander/ghascan/main ./install.sh
 ```
 
 ```powershell
-.\install.ps1 -Raw https://raw.githubusercontent.com/TU-ORG/ghascan/main
+.\install.ps1 -Raw https://raw.githubusercontent.com/emmanuelalexander/ghascan/main
 ```
 
 > El upstream declarado por el proyecto original
-> (`github.com/nekros1xx/ghascan`) hoy devuelve 404, así que no existe un
+> (`github.com/nekros1xx/ghascan`) hoy devuelve 404, asÃ­ que no existe un
 > `curl | sh` oficial contra esa URL. Ver `NOTICE.md`.
 
 ### 1.5 Sin instalar
@@ -601,20 +601,30 @@ conjuntos de clasificacion de control; el resto del codigo es original.
 El detalle esta en `NOTICE.md` y la licencia en `LICENSE`.
 
 El repositorio que ese proyecto declaraba (`github.com/nekros1xx/ghascan`) hoy
-devuelve 404, por eso:
+devuelve 404, por eso `ghascan` se publicó como copia propia:
 
-- no hay instalacion `curl | sh` contra esa URL;
-- la instalacion remota usa `-Raw` / `GHASCAN_RAW` con **tu** copia publicada;
-- la instalacion normal es `pipx install .` o los scripts del checkout.
+- **Repo**: https://github.com/emmanuelalexander/ghascan
+- **Instalacion remota**: `-Raw` / `GHASCAN_RAW` apuntando a ese repo.
+- **Instalacion normal**: `pipx install .` o los scripts del checkout.
 
-### Si queres publicarlo
+### Publicacion (ya hecha)
 
-1. Crea un repo propio (privado o publico) con esta carpeta.
-2. Ajusta `pyproject.toml` (autores, URLs) y `NOTICE.md` si cambia el upstream.
-3. Verifica que `pipx install .` y `python -m unittest discover -s tests` pasen.
-4. Recien entonces el one-liner remoto tiene sentido:
+1. Repo publico `emmanuelalexander/ghascan` (MIT, con `NOTICE.md`).
+2. CI en `.github/workflows/tests.yml`: Ubuntu/Windows/macOS × Python 3.9/3.12/3.13.
+   Python 3.9 se prueba en `ubuntu-22.04` porque `ubuntu-latest` (26.04) ya no lo trae.
+3. Verificado: `python -m unittest discover -s tests` (12/12), `selftest`, `demo`
+   y la instalacion remota real en una carpeta temporal.
+
+One-liner resultante:
 
 ```sh
-GHASCAN_RAW=https://raw.githubusercontent.com/TU-ORG/ghascan/main ./install.sh
+curl -fsSL https://raw.githubusercontent.com/emmanuelalexander/ghascan/main/install.sh \
+  | GHASCAN_RAW=https://raw.githubusercontent.com/emmanuelalexander/ghascan/main sh
 ```
+
+```powershell
+iwr -useb https://raw.githubusercontent.com/emmanuelalexander/ghascan/main/install.ps1 -OutFile install.ps1
+powershell -NoProfile -ExecutionPolicy Bypass -File .\install.ps1 -Raw https://raw.githubusercontent.com/emmanuelalexander/ghascan/main
+```
+
 

@@ -95,8 +95,8 @@ Los scripts también funcionan sin red si ya tenés el repo clonado. Ver las
 secciones de Windows y Linux/macOS arriba.
 
 > El proyecto original declaraba `github.com/nekros1xx/ghascan` en sus
-> metadatos, pero ese repositorio hoy devuelve **404**. Por eso no hay un
-> one-liner `curl | sh` contra esa URL: sería un enlace roto. Ver `NOTICE.md`.
+> metadatos, pero ese repositorio hoy devuelve **404**. Por eso el one-liner de
+> arriba apunta a esta copia publicada y no a esa URL rota. Ver `NOTICE.md`.
 
 ### Sin instalar
 

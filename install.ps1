@@ -7,14 +7,14 @@
     %USERPROFILE%\.local\bin (o -Bin) y verifica Python + PyYAML.
 
     No descarga de ninguna URL por defecto: instala desde este checkout.
-    Para instalar en otra maquina sin clonar, empaquetá esta carpeta y
-    descomprimila alli, o pasá -Raw con la base de TU copia publicada.
+    Para instalar en otra maquina sin clonar, empaquetÃ¡ esta carpeta y
+    descomprimila alli, o pasÃ¡ -Raw con la base de TU copia publicada.
 
 .EXAMPLES
     .\install.ps1
     .\install.ps1 -Prefix D:\tools\ghascan -Bin D:\tools\bin
     .\install.ps1 -NoDeps
-    .\install.ps1 -Raw https://raw.githubusercontent.com/TU-ORG/ghascan/main
+    .\install.ps1 -Raw https://raw.githubusercontent.com/emmanuelalexander/ghascan/main
 #>
 [CmdletBinding()]
 param(
@@ -108,3 +108,4 @@ Say 'Listo. Probar en una terminal nueva:'
 Say '  ghascan selftest'
 Say '  ghascan demo'
 Say '  ghascan scan --local .'
+
