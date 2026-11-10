@@ -83,9 +83,12 @@ curl -fsSL https://raw.githubusercontent.com/emmanuelalexander/ghascan/main/inst
 ```
 
 ```powershell
-iwr -useb https://raw.githubusercontent.com/emmanuelalexander/ghascan/main/install.ps1 -OutFile install.ps1
-.\install.ps1 -Raw https://raw.githubusercontent.com/emmanuelalexander/ghascan/main
+iwr -useb https://raw.githubusercontent.com/emmanuelalexander/ghascan/main/install.ps1 -OutFile "$env:TEMP\ghascan-install.ps1"
+powershell -NoProfile -ExecutionPolicy Bypass -File "$env:TEMP\ghascan-install.ps1" -Raw https://raw.githubusercontent.com/emmanuelalexander/ghascan/main
 ```
+
+El segundo comando evita el error de política de ejecución de scripts. Si ya
+tenés el repo clonado, alcanza con `.\install.ps1`.
 
 Si publicás un fork, reemplazá `emmanuelalexander` por tu org.
 
